@@ -32,6 +32,7 @@ version: 2.1
 #              exit 1
 #            fi
 #![](../CICDPipeline.png)
+
 jobs:
   build-frontend:
     docker:
