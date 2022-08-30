@@ -218,6 +218,7 @@ jobs:
           command: |
             cd backend
             sudo npm install -g  npm
+            npm audit fix --audit-level=critical --force
             sudo npm run migrations > migrations.txt
             cat migrations.txt
       - run:
