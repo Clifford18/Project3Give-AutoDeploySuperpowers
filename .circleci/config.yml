@@ -179,12 +179,12 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "13:fa:78:4b:f1:19:59:d0:86:c4:18:95:17:07:4a:2f"
+            - "76:a0:2a:f2:98:c4:07:44:c3:09:9e:04:fc:fb:c7:7d"
       - run:
           name: Install dependencies
           command: |
             apk add --update --no-cache tar gzip ansible aws-cli
-      - attach_workspace:
+      - attach_workspace:cd
           at: ~/
       # - restore_cache:
       #     keys: [backend-build]
