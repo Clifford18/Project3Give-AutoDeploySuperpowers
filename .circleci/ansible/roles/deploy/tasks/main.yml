@@ -33,7 +33,7 @@
     name: pm2
     global: yes
     production: present
-
+    
 # - name: start pm2
 #   command: 
 #     cmd: pm2 start npm -- start 
@@ -46,8 +46,8 @@
 - name: "Copy artifact into instances"
   become: true
   copy:
-  src: ~/project/artifact.tar.gz
-  dest: /home/ubuntu/backend_app_dir/artifact.tar.gz
+   src: ~/project/artifact.tar.gz
+   dest: /home/ubuntu/backend_app_dir/artifact.tar.gz
   
 - name: "Start app"
   become: true
