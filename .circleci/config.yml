@@ -184,7 +184,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update --no-cache tar gzip ansible aws-cli
-      - attach_workspace:cd
+      - attach_workspace:
           at: ~/
       # - restore_cache:
       #     keys: [backend-build]
