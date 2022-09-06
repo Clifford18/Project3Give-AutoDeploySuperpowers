@@ -1,41 +1,28 @@
-# - name: Creates directory
-#   file:
-#     path: ~/backend_app
-#     state: directory
 ---
 - name: "update and upgrade packages."
-  become: yes
+  become: true
   apt:
     update_cache: yes
     upgrade: yes
     
 - name: remove unneeded deps
-  become: yes
+  become: true
   apt:
     autoremove: yes
     
-# - name: Extract the zipped artifact
-#   unarchive: 
-#     src:  ~/project/artifact.tar.gz
-#     dest: ~/
-
 - name: Install dependencies
-  become: yes
+  become: true
   apt:
     name: ["nodejs", "npm"]
     state: latest
     update_cache: yes
-
+    
 - name: Install pm2
-  become: yes
+  become: true
   npm: 
     name: pm2
     global: yes
     production: present
-    
-# - name: start pm2
-#   command: 
-#     cmd: pm2 start npm -- start 
     
 - name: Create Backend App Directory
   file:
@@ -57,4 +44,3 @@
    npm run build
    pm2 stop all
    pm2 start npm -- start
-   
