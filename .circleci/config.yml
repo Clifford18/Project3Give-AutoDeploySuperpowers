@@ -186,8 +186,8 @@ jobs:
             apk add --update --no-cache tar gzip ansible aws-cli
       - attach_workspace:
           at: ~/
-      # - restore_cache:
-      #     keys: [backend-build]
+      - restore_cache:
+          keys: [backend-build]
       - run:
           name: Configure server
           command: |
@@ -272,13 +272,13 @@ jobs:
       - image: python:3.9.0-alpine
     steps:
       - checkout
-      - restore_cache:
-          keys: [backend-build]
       - add_ssh_keys:
           fingerprints:
             - "76:a0:2a:f2:98:c4:07:44:c3:09:9e:04:fc:fb:c7:7d"
       - attach_workspace:
           at: ~/
+      - restore_cache:
+          keys: [backend-build]
       - run:
           name: Install dependencies
           command: |
